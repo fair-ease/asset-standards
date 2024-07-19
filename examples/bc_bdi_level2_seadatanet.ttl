@@ -1,0 +1,151 @@
+@prefix faireasecatalogs: <https://fairease.eu/catalogs> .
+@prefix dap: <http://example.org/dap-example/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sosa: <http://www.w3.org/ns/sosa/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcat: <https://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/>.
+@prefix geosparql: <http://www.opengis.net/ont/geosparql#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix sdo: <https://schema.org/> .
+@prefix iop: <https://w3id.org/iadopt/ont/>.
+@prefix skos: <http://www.w3.org/2004/02/skos/core#>.
+
+<http://vocab.nerc.ac.uk/collection/P01/current/TEMPP681/> a skos:Concept, sosa:ObservedProperty, iop:Variable;
+    skos:prefLabel "Temperature (IPTS-68) of the water body" .
+
+<http://vocab.nerc.ac.uk/collection/L27/current/ARGO_QC/> a skos:Concept;
+    skos:prefLabel "ARGO quality flags".
+
+<https://edmo.seadatanet.org/report/43> a prov:Organization ;
+    rdfs:label "BODC".
+
+<https://edmo.seadatanet.org/report/4614> a prov:Organization ;
+    rdfs:label "Argo".
+
+
+<http://vocab.nerc.ac.uk/collection/P22/current/28/> a skos:Concept;
+    skos:prefLabel "Oceanographic geographical features" .
+
+#The main catalogue
+faireasecatalogs:FAIREASECatalog a dcat:Catalog ;
+    dct:title "FAIREASECatalog Catalog"@en ;
+    rdfs:label "FAIREASECatalog Catalog"@en ;
+    foaf:homepage <http://example.org/catalog> ;
+    dct:publisher  <https://edmo.seadatanet.org/report/43> ;
+    dct:language <http://id.loc.gov/vocabulary/iso639-1/en>  ;
+    #Contains other catalogues
+    dcat:catalog <https://cdi.seadatanet.org/dcat/catalog> .
+
+#Describe each Catalogue with as much detail as FAIRE-EASE has and list their datasets. here I only include one dataset for SDN
+<https://cdi.seadatanet.org/dcat/catalog> a dcat:Catalog ;
+  rdfs:label "SeaDataNet Catalogue";
+  dcat:dataset <https://cdi.seadatanet.org/report/3461077> .
+
+
+#Describing the main dataset
+<https://cdi.seadatanet.org/report/3461077> a dcat:Dataset, sdo:Dataset;
+    dct:title "CTD001";
+    dct:alternative "urn:SDN:CDI:LOCAL:2012659/v0"; # CDI local identifier/name -> gmd:alternateTitle in XML
+    dct:description "A single series of CTD or STD cast data collected between 12 October 2012 04:00 and 12 October 2012 04:25."; #abstract
+    dct:identifier <https://cdi.seadatanet.org/report/3461077> ;
+    # adms:identifier [ # Not applicable, CDI's dont have DOI's
+    #     rdf:type adms:Identifier;
+    #     rdf:parseType "Resource";
+    #     skos:notation "10.1000/182" ;
+    #     adms:schemaAgency <https://registry.identifiers.org/registry/doi> ;
+    # ];
+    dcat:theme <http://vocab.nerc.ac.uk/collection/P22/current/28/> ; 
+    dct:issued "2019-11-12";
+    dcat:distribution <https://cdi.seadatanet.org/report/3461077/distribution>;
+    dqv:hasQualityMeasurement <https://cdi.seadatanet.org/measurement-1>;
+    dct:publisher  <https://edmo.seadatanet.org/report/43>;
+    dct:creator  <https://edmo.seadatanet.org/report/43> ;
+
+    #Temporal Info
+    dct:temporal [
+        a dct:PeriodOfTime ;    
+        dcat:startDate "2018-10-18"^^xsd:date ;    
+        dcat:endDate   "2018-10-18"^^xsd:date ;  
+    ];
+
+    #Spatial Info
+    dct:spatial [
+        a dct:Location ;
+        dcat:bbox """POINT(-27.2000007629 -28.2503013611)"""^^geosparql:wktLiteral ;
+      ] ;
+
+    sdo:variableMeasured [
+        rdf:type sdo:PropertyValue;
+        sdo:name "Visible waveband radiance and irradiance measurements in the water column";
+        sdo:alternateName "WC_VisRad";
+        sdo:propertyID <http://vocab.nerc.ac.uk/collection/P02/current/VSRW/> ;
+    ] ;
+
+    prov:wasGeneratedBy dap:Activity1 .
+
+dap:Activity1 a prov:Activity;
+    prov:used <http://vocab.nerc.ac.uk/collection/L05/current/351/>, <http://vocab.nerc.ac.uk/collection/L05/current/134/>, <http://vocab.nerc.ac.uk/collection/L05/current/130/>, <http://vocab.nerc.ac.uk/collection/L05/current/350/>, <http://vocab.nerc.ac.uk/collection/L05/current/379/>, <http://vocab.nerc.ac.uk/collection/L05/current/124/>, <http://vocab.nerc.ac.uk/collection/L05/current/113/>, <http://vocab.nerc.ac.uk/collection/L05/current/123/>, <http://vocab.nerc.ac.uk/collection/L05/current/WPS/>, <http://vocab.nerc.ac.uk/collection/L05/current/122/> .
+    prov:used <https://vocab.nerc.ac.uk/collection/L06/current/26/>;
+        
+<http://vocab.nerc.ac.uk/collection/L05/current/351/> a sosa:Sensor, prov:Entity, skos:Concept;
+    skos:prefLabel "dissolved gas sensors";
+
+<http://vocab.nerc.ac.uk/collection/L05/current/134/> a sosa:Sensor, prov:Entity, skos:Concept;
+    skos:prefLabel "water temperature sensor";
+
+<http://vocab.nerc.ac.uk/collection/L05/current/130/> a sosa:Sensor, prov:Entity, skos:Concept;
+    skos:prefLabel "CTD";
+
+<http://vocab.nerc.ac.uk/collection/L05/current/350/> a sosa:Sensor, prov:Entity, skos:Concept;
+    skos:prefLabel "salinity sensor";
+
+<http://vocab.nerc.ac.uk/collection/L05/current/379/> a sosa:Sensor, prov:Entity, skos:Concept;
+    skos:prefLabel "altimeters";
+
+<http://vocab.nerc.ac.uk/collection/L05/current/124/> a sosa:Sensor, prov:Entity, skos:Concept;
+    skos:prefLabel "transmissometers";
+
+<http://vocab.nerc.ac.uk/collection/L05/current/113/> a sosa:Sensor, prov:Entity, skos:Concept;
+    skos:prefLabel "fluorometers";
+
+<http://vocab.nerc.ac.uk/collection/L05/current/123/> a sosa:Sensor, prov:Entity, skos:Concept;
+    skos:prefLabel "optical backscatter sensors";
+
+<http://vocab.nerc.ac.uk/collection/L05/current/WPS/> a sosa:Sensor, prov:Entity, skos:Concept;
+    skos:prefLabel "water pressure sensors";
+
+<http://vocab.nerc.ac.uk/collection/L05/current/122/> a sosa:Sensor, prov:Entity, skos:Concept;
+    skos:prefLabel "radiometers";
+
+<https://vocab.nerc.ac.uk/collection/L06/current/26/> a sosa:Platform;
+    skos:prefLabel "lowered unmanned submersible";
+
+
+##Distribution
+<https://cdi.seadatanet.org/report/3461077/distribution> a dcat:Distribution ;
+    dcat:downloadURL <http://dcat.example.org/files/001.csv> ;
+    dct:title "Distribution of the dataset using the CDI API (or Blue-Cloud)"@en ;
+    #TODO: Describe the API Service so M2M can access it
+    dcat:mediaType <http://www.iana.org/assignments/media-types/text/csv> ;
+    dcat:accessService <https://cdi.seadatanet.org/subset-service-001>;
+    dcat:byteSize "5120"^^xsd:nonNegativeInteger .
+
+#A service
+<https://cdi.seadatanet.org/subset-service-001>
+    rdf:type dcat:DataService ;
+    dct:conformsTo <http://dcat.example.org/apidef/table/v2.2> ;
+    dct:type <https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/invoke> ;
+    dcat:endpointDescription <http://dcat.example.org/api/table-005/capability> ;
+    dcat:endpointURL <http://dcat.example.org/api/table-001> ;
+    dcat:servesDataset <https://cdi.seadatanet.org/report/3461077> .
+
+#The quality info here
+<https://cdi.seadatanet.org/measurement-1> a dqv:QualityMeasurement ;
+    dqv:isMeasurementOf  <https://vocab.nerc.ac.uk/collection/L27/current/SEADATANET_QC/> ;
+    dqv:value "good"^^xsd:string .
+
