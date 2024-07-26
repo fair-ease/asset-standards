@@ -115,7 +115,10 @@ ex:DistributionShape
         sh:datatype xsd:string ;
     ] , [
         sh:path dcat:mediaType ;
-        sh:datatype xsd:anyURI ;
+        sh:in ( 
+            <https://www.iana.org/assignments/media-types/application/netcdf>
+            <https://www.iana.org/assignments/media-types/application/json>
+        ) ;
     ] , [
         sh:path dcat:byteSize ;
         sh:datatype xsd:nonNegativeInteger ;
