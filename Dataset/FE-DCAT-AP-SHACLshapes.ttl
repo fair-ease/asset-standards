@@ -117,6 +117,7 @@ ex:DistributionShape
         sh:path dcat:mediaType ;
         sh:in (
             <https://www.iana.org/assignments/media-types/application/netcdf>
+            <http://www.iana.org/assignments/media-types/text/csv>
             <https://www.iana.org/assignments/media-types/application/ld+json>
             <https://www.iana.org/assignments/media-types/text/turtle>
             <https://www.iana.org/assignments/media-types/application/rdf+xml>
