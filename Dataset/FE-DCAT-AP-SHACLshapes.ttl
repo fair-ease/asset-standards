@@ -1,4 +1,3 @@
-
 @prefix ex: <http://https://fairease.eu/dataset/> .
 @prefix dap: <http://example.org/dap-example/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -34,13 +33,13 @@ ex:CatalogShape
         sh:datatype xsd:anyURI ;
     ] , [
         sh:path dct:language ;
-        sh:datatype xsd:anyURI ;
+        sh:nodeKind sh:IRI ;
     ] , [
         sh:path dcat:catalog ;
         sh:node ex:CatalogShape ;
     ] , [
         sh:path dct:publisher ;
-        sh:minCount 1 ;                 # mandatory property?
+        sh:minCount 0 ;                 # mandatory property?
         sh:maxCount 1 ;                 # can there be more than one publisher? ~ similar questions / need for check with other cardinality statements
         sh:node ex:OrganizationShape ;
     ] , [
@@ -57,7 +56,7 @@ ex:DatasetShape
     sh:property [
         sh:path dct:identifier ;
         sh:maxCount 1 ;
-        sh:datatype xsd:anyURI ;
+         sh:nodeKind sh:IRI  ;
     ] , [
         sh:path dct:issued ;
         sh:maxCount 1 ;
@@ -109,16 +108,13 @@ ex:DistributionShape
     sh:targetClass dcat:Distribution ;
     sh:property [
         sh:path dcat:downloadURL ;
-        sh:datatype xsd:anyURI ;
+         sh:nodeKind sh:IRI  ;
     ] , [
         sh:path dct:title ;
         sh:datatype xsd:string ;
     ] , [
         sh:path dcat:mediaType ;
-        sh:in ( 
-            <https://www.iana.org/assignments/media-types/application/netcdf>
-            <https://www.iana.org/assignments/media-types/application/json>
-        ) ;
+         sh:nodeKind sh:IRI  ;
     ] , [
         sh:path dcat:byteSize ;
         sh:datatype xsd:nonNegativeInteger ;
@@ -134,16 +130,16 @@ ex:DataserviceShape
     sh:targetClass dcat:DataService ;
     sh:property [
         sh:path dct:type ;
-        sh:datatype xsd:anyURI ;
+         sh:nodeKind sh:IRI  ;
     ] , [
         sh:path dcat:endpointURL ;
-        sh:datatype xsd:anyURI ;
+         sh:nodeKind sh:IRI  ;
     ] , [
         sh:path dcat:endpointDescription ;
-        sh:datatype xsd:anyURI ;
+         sh:nodeKind sh:IRI  ;
     ] , [
         sh:path dct:conformsTo ;
-        sh:datatype xsd:anyURI ;
+         sh:nodeKind sh:IRI  ;
     ] , [
         sh:path dcat:servesDataset ;
         sh:node ex:DatasetShape ;
@@ -161,7 +157,7 @@ ex:IdentifierShape
     ] , [
         sh:path adms:schemaAgency ;
         sh:maxCount 1 ;
-        sh:datatype xsd:anyURI ;
+         sh:nodeKind sh:IRI  ;
     ] , [
         sh:path rdf:parseType ;
         sh:maxCount 1 ;
@@ -209,7 +205,7 @@ ex:MeasuredVariableShape
     ] , [
         sh:path sdo:propertyID ;
         sh:maxCount 1 ;
-        sh:datatype xsd:anyURI ;
+         sh:nodeKind sh:IRI  ;
     ]
 .
 
