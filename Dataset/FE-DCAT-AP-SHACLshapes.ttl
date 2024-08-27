@@ -230,7 +230,7 @@ ex:QualityMeasurementShape
     ] , [
         sh:path dqv:value ;
         sh:maxCount 1 ;
-        sh:datatype xsd:boolean ;
+        sh:datatype xsd:string ;
     ] ;
 .
 
