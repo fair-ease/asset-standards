@@ -16,7 +16,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 
 <http://vocab.nerc.ac.uk/collection/P01/current/TEMPP681/> a skos:Concept, sosa:ObservedProperty, iop:Variable;
-skos:prefLabel "Temperature (IPTS-68) of the water body" .
+skos:prefLabel "Temperature (IPTS-68) of the water body"^^xsd:string .
 
 #Or do the iadopt decomposition here
 # iop:hasObjectOfInterest	<http://vocab.nerc.ac.uk/collection/S21/current/S21S027> ;
@@ -24,19 +24,19 @@ skos:prefLabel "Temperature (IPTS-68) of the water body" .
 
 
  <http://vocab.nerc.ac.uk/collection/L27/current/ARGO_QC/> a skos:Concept;
-skos:prefLabel "ARGO quality flags".
+skos:prefLabel "ARGO quality flags"^^xsd:string.
 
 <https://edmo.seadatanet.org/report/43> a prov:Organization ;
-rdfs:label "BODC".
+rdfs:label "BODC"^^xsd:string.
 
 
  <https://edmo.seadatanet.org/report/4614> a prov:Organization ;
-rdfs:label "Argo".
+rdfs:label "Argo"^^xsd:string.
 
 
 
  <http://vocab.nerc.ac.uk/collection/P22/current/28/> a skos:Concept;
- skos:prefLabel "Oceanographic geographical features" .
+ skos:prefLabel "Oceanographic geographical features"^^xsd:string .
 
   #The main catalogue
   ex:FAIREASECatalog a dcat:Catalog ;
@@ -51,27 +51,27 @@ rdfs:label "Argo".
 #Describe each Catalogue with as much detail as FAIRE-EASE has and list their datasets. here I only include one dataset for SDN ex:MyDataset
 
   ex:SDNCatalog a dcat:Catalog ;
-  rdfs:label "SeaDataNet Catalogue";
+  rdfs:label "SeaDataNet Catalogue"^^xsd:string;
   dcat:dataset exdata:MyDataset.
  
   ex:CopernicusCatalog a dcat:Catalog ;
-  rdfs:label "Copernicus Catalogue".
+  rdfs:label "Copernicus Catalogue"^^xsd:string.
   
 
 #Describing the main dataset
 exdata:MyDataset a dcat:Dataset, sdo:Dataset;
-dct:title "PROVOR-V JUMBO Profiling Float - 2903783 - Argo LOV";
-dct:description "SeaDataNet is the Pan-European infrastructure for marine and ocean data management and delivery services. ";
-dct:identifier <https://cdi.seadatanet.org/report/681> ;
+dct:title "PROVOR-V JUMBO Profiling Float - 2903783 - Argo LOV"^^xsd:string;
+dct:description "SeaDataNet is the Pan-European infrastructure for marine and ocean data management and delivery services. "^^xsd:string;
+dct:identifier "https://cdi.seadatanet.org/report/681"^^xsd:anyURI ;
 adms:identifier [
 rdf:type adms:Identifier;
-rdf:parseType "Resource";
-skos:notation "10.1000/182" ;
-adms:schemaAgency <https://registry.identifiers.org/registry/doi> ;
+rdf:parseType "Resource"^^xsd:string;
+skos:notation "10.1000/182"^^xsd:string ;
+adms:schemaAgency "https://registry.identifiers.org/registry/doi"^^xsd:anyURI ;
 ];
 dcat:theme <http://vocab.nerc.ac.uk/collection/P22/current/28/> ;
 
-dct:issued "2008-12-04";
+dct:issued "2008-12-04"^^xsd:date;
 dcat:distribution exdata:MyDataset-001-csv ;
 dqv:hasQualityMeasurement exdata:measurement1;
 dct:publisher  <https://edmo.seadatanet.org/report/4614>;
@@ -98,9 +98,9 @@ dct:temporal [
 sdo:variableMeasured [
     
       rdf:type sdo:PropertyValue;
-      sdo:name "Temperature (IPTS-68) of the water body";
-      sdo:alternateName "WC_temp68";
-      sdo:propertyID <http://vocab.nerc.ac.uk/collection/P01/current/TEMPP681> ;
+      sdo:name "Temperature (IPTS-68) of the water body"^^xsd:string;
+      sdo:alternateName "WC_temp68"^^xsd:string;
+      sdo:propertyID "http://vocab.nerc.ac.uk/collection/P01/current/TEMPP681"^^xsd:anyURI ;
     ] ;
 
   prov:wasGeneratedBy exdata:Activity1 .
@@ -112,12 +112,12 @@ exdata:Activity1 a prov:Activity;
 
 #Separation of platform and sensor by commenting out the following:
 <http://vocab.nerc.ac.uk/collection/L05/current/134/>  a sosa:Sensor, prov:Entity, skos:Concept;
-skos:prefLabel "water temperature sensor".
+skos:prefLabel "water temperature sensor"^^xsd:string.
 #sosa:observes <http://vocab.nerc.ac.uk/collection/P01/current/TEMPP681/> ;
 #sosa:isHostedBy <http://vocab.nerc.ac.uk/collection/B76/current/B7600031/> .
 
 <http://vocab.nerc.ac.uk/collection/B76/current/B7600031/> a sosa:Platform;
-skos:prefLabel "National Oceanography Centre Autosub6000 autonomous underwater vehicle" .
+skos:prefLabel "National Oceanography Centre Autosub6000 autonomous underwater vehicle"^^xsd:string .
 #sosa:hosts <http://vocab.nerc.ac.uk/collection/L05/current/134/> .
 
 
