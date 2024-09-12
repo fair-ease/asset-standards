@@ -24,12 +24,15 @@ ex:CatalogShape
     sh:targetClass dcat:Catalog ;
     sh:property [
         sh:path dct:title ;
+		sh:minCount 1 ;
         sh:datatype xsd:string ;
     ] , [
-        sh:path rdfs:label ;
+        sh:path dct:description ;
         sh:minCount 1 ;                # appears as mandatory property from dataset.ttl example, but is it?
         sh:datatype xsd:string ;
-    ] , [
+    ] , 
+	
+	[
         sh:path foaf:homepage ;
         sh:datatype xsd:anyURI ;
     ] , [
@@ -57,7 +60,7 @@ ex:DatasetShape
     sh:property [
         sh:path dct:identifier ;
         sh:maxCount 1 ;
-        sh:datatype xsd:anyURI ;
+        sh:nodeKind sh:IRI ; ;
     ] , [
         sh:path dct:issued ;
         sh:maxCount 1 ;
@@ -158,7 +161,7 @@ ex:IdentifierShape
     ] , [
         sh:path adms:schemaAgency ;
         sh:maxCount 1 ;
-        sh:datatype xsd:anyURI ;
+        sh:nodeKind sh:IRI ;
     ] , [
         sh:path rdf:parseType ;
         sh:maxCount 1 ;
@@ -206,7 +209,7 @@ ex:MeasuredVariableShape
     ] , [
         sh:path sdo:propertyID ;
         sh:maxCount 1 ;
-        sh:datatype xsd:anyURI ;
+        sh:nodeKind sh:IRI ; ;
     ]
 .
 
