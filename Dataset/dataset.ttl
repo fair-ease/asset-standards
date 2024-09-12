@@ -16,7 +16,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 
 <http://vocab.nerc.ac.uk/collection/P01/current/TEMPP681/> a skos:Concept, sosa:ObservedProperty, iop:Variable;
-skos:prefLabel "Temperature (IPTS-68) of the water body"^^xsd:string .
+skos:prefLabel "Temperature (IPTS-68) of the water body" .
 
 #Or do the iadopt decomposition here
 # iop:hasObjectOfInterest	<http://vocab.nerc.ac.uk/collection/S21/current/S21S027> ;
@@ -24,24 +24,26 @@ skos:prefLabel "Temperature (IPTS-68) of the water body"^^xsd:string .
 
 
  <http://vocab.nerc.ac.uk/collection/L27/current/ARGO_QC/> a skos:Concept;
-skos:prefLabel "ARGO quality flags"^^xsd:string.
-
-<https://edmo.seadatanet.org/report/43> a prov:Organization ;
-rdfs:label "BODC"^^xsd:string.
+skos:prefLabel "ARGO quality flags".
 
 
- <https://edmo.seadatanet.org/report/4614> a prov:Organization ;
-rdfs:label "Argo"^^xsd:string.
+<https://edmo.seadatanet.org/report/43> a prov:Organization, foaf:Agent ;
+foaf:name "BODC".
 
+
+ <https://edmo.seadatanet.org/report/4614> a prov:Organization, foaf:Agent ;
+foaf:name "Argo".
+
+<http://id.loc.gov/vocabulary/iso639-1/en> a dct:LinguisticSystem .
 
 
  <http://vocab.nerc.ac.uk/collection/P22/current/28/> a skos:Concept;
- skos:prefLabel "Oceanographic geographical features"^^xsd:string .
+ skos:prefLabel "Oceanographic geographical features" .
 
   #The main catalogue
   ex:FAIREASECatalog a dcat:Catalog ;
   dct:title "FAIREASECatalog Catalog"@en ;
-  rdfs:label "FAIREASECatalog Catalog"@en ;
+  dct:description "FAIREASECatalog Catalog"@en ;
   foaf:homepage <http://example.org/catalog> ;
   dct:publisher  <https://edmo.seadatanet.org/report/43> ;
   dct:language <http://id.loc.gov/vocabulary/iso639-1/en>  ;
@@ -51,23 +53,28 @@ rdfs:label "Argo"^^xsd:string.
 #Describe each Catalogue with as much detail as FAIRE-EASE has and list their datasets. here I only include one dataset for SDN ex:MyDataset
 
   ex:SDNCatalog a dcat:Catalog ;
-  rdfs:label "SeaDataNet Catalogue"^^xsd:string;
-  dcat:dataset exdata:MyDataset.
+  
+  dct:title "SeaDataNet Catalogue";
+  dct:description "SeaDataNet Catalogue";
+  dcat:dataset exdata:MyDataset;
+  dct:publisher  <https://edmo.seadatanet.org/report/43> .
  
   ex:CopernicusCatalog a dcat:Catalog ;
-  rdfs:label "Copernicus Catalogue"^^xsd:string.
+  dct:title "Copernicus Catalogue";
+  dct:description "Copernicus Catalogue";
+  dct:publisher  <https://edmo.seadatanet.org/report/43> .
   
 
 #Describing the main dataset
 exdata:MyDataset a dcat:Dataset, sdo:Dataset;
-dct:title "PROVOR-V JUMBO Profiling Float - 2903783 - Argo LOV"^^xsd:string;
-dct:description "SeaDataNet is the Pan-European infrastructure for marine and ocean data management and delivery services. "^^xsd:string;
-dct:identifier "https://cdi.seadatanet.org/report/681"^^xsd:anyURI ;
+dct:title "PROVOR-V JUMBO Profiling Float - 2903783 - Argo LOV";
+dct:description "SeaDataNet is the Pan-European infrastructure for marine and ocean data management and delivery services. ";
+dct:identifier <https://cdi.seadatanet.org/report/681> ;
 adms:identifier [
 rdf:type adms:Identifier;
-rdf:parseType "Resource"^^xsd:string;
-skos:notation "10.1000/182"^^xsd:string ;
-adms:schemaAgency "https://registry.identifiers.org/registry/doi"^^xsd:anyURI ;
+rdf:parseType "Resource";
+skos:notation "10.1000/182" ;
+adms:schemaAgency <https://registry.identifiers.org/registry/doi> ;
 ];
 dcat:theme <http://vocab.nerc.ac.uk/collection/P22/current/28/> ;
 
@@ -98,9 +105,9 @@ dct:temporal [
 sdo:variableMeasured [
     
       rdf:type sdo:PropertyValue;
-      sdo:name "Temperature (IPTS-68) of the water body"^^xsd:string;
-      sdo:alternateName "WC_temp68"^^xsd:string;
-      sdo:propertyID "http://vocab.nerc.ac.uk/collection/P01/current/TEMPP681"^^xsd:anyURI ;
+      sdo:name "Temperature (IPTS-68) of the water body";
+      sdo:alternateName "WC_temp68";
+      sdo:propertyID <http://vocab.nerc.ac.uk/collection/P01/current/TEMPP681> ;
     ] ;
 
   prov:wasGeneratedBy exdata:Activity1 .
@@ -112,12 +119,12 @@ exdata:Activity1 a prov:Activity;
 
 #Separation of platform and sensor by commenting out the following:
 <http://vocab.nerc.ac.uk/collection/L05/current/134/>  a sosa:Sensor, prov:Entity, skos:Concept;
-skos:prefLabel "water temperature sensor"^^xsd:string.
+skos:prefLabel "water temperature sensor".
 #sosa:observes <http://vocab.nerc.ac.uk/collection/P01/current/TEMPP681/> ;
 #sosa:isHostedBy <http://vocab.nerc.ac.uk/collection/B76/current/B7600031/> .
 
-<http://vocab.nerc.ac.uk/collection/B76/current/B7600031/> a sosa:Platform;
-skos:prefLabel "National Oceanography Centre Autosub6000 autonomous underwater vehicle"^^xsd:string .
+<http://vocab.nerc.ac.uk/collection/B76/current/B7600031/> a sosa:Platform, prov:Entity ;
+skos:prefLabel "National Oceanography Centre Autosub6000 autonomous underwater vehicle" .
 #sosa:hosts <http://vocab.nerc.ac.uk/collection/L05/current/134/> .
 
 
@@ -129,6 +136,7 @@ exdata:MyDataset-001-csv   a dcat:Distribution ;
   dct:title "distribuciÃ³n en CSV del conjunto de datos imaginario 001"@es ;
   dcat:mediaType <http://www.iana.org/assignments/media-types/text/csv> ;
   dcat:accessService exdata:subset-service-001 ;
+  dcat:accessURL <http://dcat.example.org/files/001.html> ;
   dcat:byteSize "5120"^^xsd:nonNegativeInteger .
 
 #The quality info here
@@ -138,9 +146,21 @@ dqv:value "good"^^xsd:string .
 
 #A service
 exdata:subset-service-001
+  dct:title "Subsetting dataservice";
   rdf:type dcat:DataService ;
   dct:conformsTo <http://dcat.example.org/apidef/table/v2.2> ;
   dct:type <https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/invoke> ;
   dcat:endpointDescription <http://dcat.example.org/api/table-005/capability> ;
   dcat:endpointURL <http://dcat.example.org/api/table-001> ;
+  dcat:accessURL <http://dcat.example.org/files/001.html> ;
   dcat:servesDataset exdata:MyDataset .
+
+
+<http://dcat.example.org/files/001.csv> a rdfs:Resource .
+<http://dcat.example.org/files/001.html> a rdfs:Resource .
+<http://dcat.example.org/api/table-001>  a rdfs:Resource .
+<http://dcat.example.org/api/table-005/capability>  a rdfs:Resource .
+<http://dcat.example.org/apidef/table/v2.2> a dct:Standard .
+<http://example.org/catalog> a foaf:Document .
+<http://www.iana.org/assignments/media-types/text/csv> a dct:MediaType .
+<http://vocab.nerc.ac.uk/collection/L27/current/ARGO_QC/> a dqv:Metric .
