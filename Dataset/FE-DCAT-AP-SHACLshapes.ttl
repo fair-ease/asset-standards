@@ -17,8 +17,6 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix sh: <http://www.w3.org/ns/shacl#>.
 
-@prefix l24: <https://vocab.nerc.ac.uk/collection/L24/current/> .
-
 
 ex:CatalogShape
     a sh:NodeShape ;
@@ -130,32 +128,15 @@ ex:DistributionShape
         sh:datatype xsd:string ;
     ] , [
         sh:path dcat:mediaType ;
-        sh:in ( 
-            <https://www.iana.org/assignments/media-types/application/netcdf>
-            <http://www.iana.org/assignments/media-types/text/csv>
-            <https://www.iana.org/assignments/media-types/application/ld+json>
-            <https://www.iana.org/assignments/media-types/text/turtle>
-            <https://www.iana.org/assignments/media-types/application/rdf+xml>
-            l24:BAG
-            l24:BODV
-            l24:CF
-            l24:CFPOINT
-            l24:EBL
-            l24:ESFL
-            l24:SHP
-            l24:MODV
-            l24:GEOTIFF
-            l24:INAPP
-            l24:MEDATLAS
-            l24:ODV
-            l24:PNG
-            l24:SODV
-            l24:SEGY
-            l24:TIFF
-            l24:UKOAP190
-            l24:XYZ
-            l24:XTF
-            ) ;
+        sh:or (
+            [ sh:hasValue <https://www.iana.org/assignments/media-types/application/netcdf> ]       # Specific allowed URIs
+            [ sh:hasValue <http://www.iana.org/assignments/media-types/text/csv> ]
+            [ sh:hasValue <https://www.iana.org/assignments/media-types/application/ld+json> ]
+            [ sh:hasValue <https://www.iana.org/assignments/media-types/text/turtle> ]
+            [ sh:hasValue <https://www.iana.org/assignments/media-types/application/rdf+xml> ]
+            [ sh:pattern "^https://vocab\\.nerc\\.ac\\.uk/collection/L24/current/" ;                # URIs in the <https://vocab.nerc.ac.uk/collection/L24/current/> namespace
+              sh:nodeKind sh:IRI ]
+        ) ;
     ] , [
         sh:path dcat:byteSize ;
         sh:datatype xsd:nonNegativeInteger ;
