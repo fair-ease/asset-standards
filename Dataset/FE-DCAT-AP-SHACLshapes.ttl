@@ -17,6 +17,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix sh: <http://www.w3.org/ns/shacl#>.
 
+
 ex:CatalogShape
     a sh:NodeShape ;
     sh:nodeKind sh:IRI ;
@@ -34,10 +35,24 @@ ex:CatalogShape
 	
 	[
         sh:path foaf:homepage ;
-        sh:datatype xsd:anyURI ;
+        sh:or (
+            [ sh:nodeKind sh:IRI ]         # Allows IRI nodes, e.g., <http://example.com>
+            [ sh:datatype xsd:anyURI ]     # Allows literals of type xsd:anyURI
+            [ 
+                sh:datatype xsd:string ;     # Allows string literals like "http://example.com"
+                sh:pattern "^https?://.*"    # Validates format if needed
+            ]
+        ) ;
     ] , [
         sh:path dct:language ;
-        sh:datatype xsd:anyURI ;
+        sh:or (
+            [ sh:nodeKind sh:IRI ]
+            [ sh:datatype xsd:anyURI ]
+            [ 
+                sh:datatype xsd:string ;
+                sh:pattern "^https?://.*"
+            ]
+        ) ;
     ] , [
         sh:path dcat:catalog ;
         sh:node ex:CatalogShape ;
@@ -60,7 +75,14 @@ ex:DatasetShape
     sh:property [
         sh:path dct:identifier ;
         sh:maxCount 1 ;
-        sh:nodeKind sh:IRI ; ;
+        sh:or (
+            [ sh:nodeKind sh:IRI ]
+            [ sh:datatype xsd:anyURI ]
+            [ 
+                sh:datatype xsd:string ;
+                sh:pattern "^https?://.*"
+            ]
+        ) ;
     ] , [
         sh:path dct:issued ;
         sh:maxCount 1 ;
@@ -112,13 +134,28 @@ ex:DistributionShape
     sh:targetClass dcat:Distribution ;
     sh:property [
         sh:path dcat:downloadURL ;
-        sh:datatype xsd:anyURI ;
+        sh:or (
+            [ sh:nodeKind sh:IRI ]
+            [ sh:datatype xsd:anyURI ]
+            [ 
+                sh:datatype xsd:string ;
+                sh:pattern "^https?://.*"
+            ]
+        ) ;
     ] , [
         sh:path dct:title ;
         sh:datatype xsd:string ;
     ] , [
         sh:path dcat:mediaType ;
-        sh:datatype xsd:anyURI ;
+        sh:or (
+            [ sh:hasValue <https://www.iana.org/assignments/media-types/application/netcdf> ]       # Specific allowed URIs
+            [ sh:hasValue <http://www.iana.org/assignments/media-types/text/csv> ]
+            [ sh:hasValue <https://www.iana.org/assignments/media-types/application/ld+json> ]
+            [ sh:hasValue <https://www.iana.org/assignments/media-types/text/turtle> ]
+            [ sh:hasValue <https://www.iana.org/assignments/media-types/application/rdf+xml> ]
+            [ sh:pattern "^https://vocab\\.nerc\\.ac\\.uk/collection/L24/current/" ;                # URIs in the <https://vocab.nerc.ac.uk/collection/L24/current/> namespace
+              sh:nodeKind sh:IRI ]
+        ) ;
     ] , [
         sh:path dcat:byteSize ;
         sh:datatype xsd:nonNegativeInteger ;
@@ -134,16 +171,44 @@ ex:DataserviceShape
     sh:targetClass dcat:DataService ;
     sh:property [
         sh:path dct:type ;
-        sh:datatype xsd:anyURI ;
+        sh:or (
+            [ sh:nodeKind sh:IRI ]
+            [ sh:datatype xsd:anyURI ]
+            [ 
+                sh:datatype xsd:string ;
+                sh:pattern "^https?://.*"
+            ]
+        ) ;
     ] , [
         sh:path dcat:endpointURL ;
-        sh:datatype xsd:anyURI ;
+        sh:or (
+            [ sh:nodeKind sh:IRI ]
+            [ sh:datatype xsd:anyURI ]
+            [ 
+                sh:datatype xsd:string ;
+                sh:pattern "^https?://.*"
+            ]
+        ) ;
     ] , [
         sh:path dcat:endpointDescription ;
-        sh:datatype xsd:anyURI ;
+        sh:or (
+            [ sh:nodeKind sh:IRI ]
+            [ sh:datatype xsd:anyURI ]
+            [ 
+                sh:datatype xsd:string ;
+                sh:pattern "^https?://.*"
+            ]
+        ) ;
     ] , [
         sh:path dct:conformsTo ;
-        sh:datatype xsd:anyURI ;
+        sh:or (
+            [ sh:nodeKind sh:IRI ]
+            [ sh:datatype xsd:anyURI ]
+            [ 
+                sh:datatype xsd:string ;
+                sh:pattern "^https?://.*"
+            ]
+        ) ;
     ] , [
         sh:path dcat:servesDataset ;
         sh:node ex:DatasetShape ;
@@ -161,7 +226,14 @@ ex:IdentifierShape
     ] , [
         sh:path adms:schemaAgency ;
         sh:maxCount 1 ;
-        sh:nodeKind sh:IRI ;
+        sh:or (
+            [ sh:nodeKind sh:IRI ]
+            [ sh:datatype xsd:anyURI ]
+            [ 
+                sh:datatype xsd:string ;
+                sh:pattern "^https?://.*"
+            ]
+        ) ;
     ] , [
         sh:path rdf:parseType ;
         sh:maxCount 1 ;
@@ -209,7 +281,14 @@ ex:MeasuredVariableShape
     ] , [
         sh:path sdo:propertyID ;
         sh:maxCount 1 ;
-        sh:nodeKind sh:IRI ; ;
+        sh:or (
+            [ sh:nodeKind sh:IRI ]
+            [ sh:datatype xsd:anyURI ]
+            [ 
+                sh:datatype xsd:string ;
+                sh:pattern "^https?://.*"
+            ]
+        ) ;
     ]
 .
 
