@@ -35,12 +35,20 @@ ex:CatalogShape
         sh:or (
             [ sh:nodeKind sh:IRI ]         # Allows IRI nodes, e.g., <http://example.com>
             [ sh:datatype xsd:anyURI ]     # Allows literals of type xsd:anyURI
+            [ 
+                sh:datatype xsd:string ;     # Allows string literals like "http://example.com"
+                sh:pattern "^https?://.*"    # Validates format if needed
+            ]
         ) ;
     ] , [
         sh:path dct:language ;
         sh:or (
             [ sh:nodeKind sh:IRI ]
             [ sh:datatype xsd:anyURI ]
+            [ 
+                sh:datatype xsd:string ;
+                sh:pattern "^https?://.*"
+            ]
         ) ;
     ] , [
         sh:path dcat:catalog ;
@@ -67,6 +75,10 @@ ex:DatasetShape
         sh:or (
             [ sh:nodeKind sh:IRI ]
             [ sh:datatype xsd:anyURI ]
+            [ 
+                sh:datatype xsd:string ;
+                sh:pattern "^https?://.*"
+            ]
         ) ;
     ] , [
         sh:path dct:issued ;
@@ -122,6 +134,10 @@ ex:DistributionShape
         sh:or (
             [ sh:nodeKind sh:IRI ]
             [ sh:datatype xsd:anyURI ]
+            [ 
+                sh:datatype xsd:string ;
+                sh:pattern "^https?://.*"
+            ]
         ) ;
     ] , [
         sh:path dct:title ;
@@ -155,24 +171,40 @@ ex:DataserviceShape
         sh:or (
             [ sh:nodeKind sh:IRI ]
             [ sh:datatype xsd:anyURI ]
+            [ 
+                sh:datatype xsd:string ;
+                sh:pattern "^https?://.*"
+            ]
         ) ;
     ] , [
         sh:path dcat:endpointURL ;
         sh:or (
             [ sh:nodeKind sh:IRI ]
             [ sh:datatype xsd:anyURI ]
+            [ 
+                sh:datatype xsd:string ;
+                sh:pattern "^https?://.*"
+            ]
         ) ;
     ] , [
         sh:path dcat:endpointDescription ;
         sh:or (
             [ sh:nodeKind sh:IRI ]
             [ sh:datatype xsd:anyURI ]
+            [ 
+                sh:datatype xsd:string ;
+                sh:pattern "^https?://.*"
+            ]
         ) ;
     ] , [
         sh:path dct:conformsTo ;
         sh:or (
             [ sh:nodeKind sh:IRI ]
             [ sh:datatype xsd:anyURI ]
+            [ 
+                sh:datatype xsd:string ;
+                sh:pattern "^https?://.*"
+            ]
         ) ;
     ] , [
         sh:path dcat:servesDataset ;
@@ -194,6 +226,10 @@ ex:IdentifierShape
         sh:or (
             [ sh:nodeKind sh:IRI ]
             [ sh:datatype xsd:anyURI ]
+            [ 
+                sh:datatype xsd:string ;
+                sh:pattern "^https?://.*"
+            ]
         ) ;
     ] , [
         sh:path rdf:parseType ;
@@ -245,6 +281,10 @@ ex:MeasuredVariableShape
         sh:or (
             [ sh:nodeKind sh:IRI ]
             [ sh:datatype xsd:anyURI ]
+            [ 
+                sh:datatype xsd:string ;
+                sh:pattern "^https?://.*"
+            ]
         ) ;
     ]
 .
