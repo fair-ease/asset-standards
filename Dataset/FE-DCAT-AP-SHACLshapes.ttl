@@ -25,12 +25,15 @@ ex:CatalogShape
     sh:targetClass dcat:Catalog ;
     sh:property [
         sh:path dct:title ;
+		sh:minCount 1 ;
         sh:datatype xsd:string ;
     ] , [
-        sh:path rdfs:label ;
+        sh:path dct:description ;
         sh:minCount 1 ;                # appears as mandatory property from dataset.ttl example, but is it?
         sh:datatype xsd:string ;
-    ] , [
+    ] , 
+	
+	[
         sh:path foaf:homepage ;
         sh:or (
             [ sh:nodeKind sh:IRI ]         # Allows IRI nodes, e.g., <http://example.com>
