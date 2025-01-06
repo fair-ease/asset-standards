@@ -129,7 +129,9 @@ exdata:MyDataset-001-csv   a dcat:Distribution ;
   dct:title "distribuciÃ³n en CSV del conjunto de datos imaginario 001"@es ;
   dcat:mediaType <http://www.iana.org/assignments/media-types/text/csv> ;
   dcat:accessService exdata:subset-service-001 ;
-  dcat:byteSize "5120"^^xsd:nonNegativeInteger .
+  dcat:byteSize "5120"^^xsd:nonNegativeInteger ;
+  dct:license <http://vocab.nerc.ac.uk/collection/L08/current/CB/> ;
+  dct:accessRights <http://vocab.nerc.ac.uk/collection/L07/current/CDIMTH02/> .
 
 #The quality info here
 exdata:measurement1 a dqv:QualityMeasurement ;
