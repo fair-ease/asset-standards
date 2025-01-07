@@ -159,6 +159,26 @@ ex:DistributionShape
     ] , [
         sh:path dcat:accessService ;
         sh:node ex:DataserviceShape ;
+    ] , [
+        sh:path dct:license ;
+        sh:or (
+            [ sh:nodeKind sh:IRI ]
+            [ sh:datatype xsd:anyURI ]
+            [ 
+                sh:datatype xsd:string ;
+                sh:pattern "^https?://.*"
+            ]
+        ) ;
+    ] , [
+        sh:path dct:accessRights ;
+        sh:or (
+            [ sh:nodeKind sh:IRI ]
+            [ sh:datatype xsd:anyURI ]
+            [ 
+                sh:datatype xsd:string ;
+                sh:pattern "^https?://.*"
+            ]
+        ) ;
     ] ;
 .
 
