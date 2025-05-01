@@ -81,8 +81,63 @@ dcat:theme <http://vocab.nerc.ac.uk/collection/P22/current/28/> ;
 dct:issued "2008-12-04"^^xsd:date;
 dcat:distribution exdata:MyDataset-001-csv ;
 dqv:hasQualityMeasurement exdata:measurement1;
-dct:publisher  <https://edmo.seadatanet.org/report/4614>;
-dct:creator  <https://edmo.seadatanet.org/report/43> ;
+dct:relation <https//www.example.com/OriginalDatasetURI> ;
+
+
+dct:publisher [
+        a foaf:Agent ;
+        foaf:name "Example Research Institute" ;
+    ] ,
+ <https://edmo.seadatanet.org/report/4614>; #if we know the URL of the publisher
+
+
+
+
+dct:creator [
+    a foaf:Agent ;
+    foaf:name "Example Research Institute"
+] ,
+[
+    a foaf:Agent ;
+    foaf:name "Another Research Organization"
+] ,
+<https://edmo.seadatanet.org/report/43> ; #This is if you know the URL
+
+
+# contributor case without organization URI
+prov:qualifiedAttribution [
+    a prov:Attribution ;
+    prov:agent [
+        rdf:type prov:Agent;
+        foaf:name "Example Research Institute";
+        dcat:hadRole <http://vocab.nerc.ac.uk/collection/G04/current/018/> ;
+  ] ;
+];
+
+
+# contributor case with organization URI
+prov:qualifiedAttribution [
+    a prov:Attribution ;
+    prov:agent  <https://edmo.seadatanet.org/report/4614>;
+        dcat:hadRole <http://vocab.nerc.ac.uk/collection/G04/current/018/> ;
+];
+
+# other roles, without organization URI
+prov:qualifiedAttribution [
+    a prov:Attribution ;
+    prov:agent [
+        rdf:type prov:Agent;
+        foaf:name "Example Research Institute";
+        dcat:hadRole [
+             a skos:Concept ;
+            skos:prefLabel "My Custom Role";
+                ];     
+      
+  ] ;
+];
+
+
+
 
 #Temporal Info
 dct:temporal [
@@ -128,7 +183,6 @@ skos:prefLabel "National Oceanography Centre Autosub6000 autonomous underwater v
 #sosa:hosts <http://vocab.nerc.ac.uk/collection/L05/current/134/> .
 
 
-
 ##Distribution
 exdata:MyDataset-001-csv   a dcat:Distribution ;
   dcat:downloadURL <http://dcat.example.org/files/001.csv> ;
@@ -137,7 +191,13 @@ exdata:MyDataset-001-csv   a dcat:Distribution ;
   dcat:mediaType <http://www.iana.org/assignments/media-types/text/csv> ;
   dcat:accessService exdata:subset-service-001 ;
   dcat:accessURL <http://dcat.example.org/files/001.html> ;
-  dcat:byteSize "5120"^^xsd:nonNegativeInteger .
+  dcat:byteSize "5120"^^xsd:nonNegativeInteger ;
+  dct:license  <https://spdx.org/licenses/CC-BY-4.0.html> ;
+  dct:accessRights   <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
+  dct:rights [ a dct:RightsStatement ;
+    rdfs:label "A rights statement"@en 
+  ] .
+
 
 #The quality info here
 exdata:measurement1 a dqv:QualityMeasurement ;
@@ -164,3 +224,4 @@ exdata:subset-service-001
 <http://example.org/catalog> a foaf:Document .
 <http://www.iana.org/assignments/media-types/text/csv> a dct:MediaType .
 <http://vocab.nerc.ac.uk/collection/L27/current/ARGO_QC/> a dqv:Metric .
+
