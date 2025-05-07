@@ -88,10 +88,18 @@ ex:DatasetShape
         sh:datatype xsd:date ;
     ] , [
         sh:path dct:title ;
-        sh:datatype xsd:string ;
+        sh:minCount 1 ;                # mandatory according to https://semiceu.github.io/DCAT-AP/releases/3.0.0/html/overview-annotated.jpg
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdfs:Literal ]
+        ) ; 
     ] , [
         sh:path dct:description ;
-        sh:datatype xsd:string ;
+        sh:minCount 1 ;                # mandatory according to https://semiceu.github.io/DCAT-AP/releases/3.0.0/html/overview-annotated.jpg
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdfs:Literal ]
+        ) ;
     ] , [
         sh:path dct:creator ;
         sh:maxCount 1 ;
@@ -141,7 +149,24 @@ ex:DistributionShape
                 sh:pattern "^https?://.*"
             ]
         ) ;
-    ] , [
+    ] ,[
+        sh:path dcat:accessURL ;
+        sh:minCount 1 ;                # mandatory according to https://semiceu.github.io/DCAT-AP/releases/3.0.0/html/overview-annotated.jpg
+        sh:or (
+            [ sh:nodeKind sh:IRI ]
+            [ sh:datatype xsd:anyURI ]
+            [ sh:datatype rdfs:Resource ]
+            [ 
+                sh:datatype xsd:string ;
+                sh:pattern "^https?://.*"
+            ]
+            [ 
+                sh:datatype xsd:string ;
+                sh:pattern "^https?://.*"
+            ]
+        ) ;
+    ] , 
+    [
         sh:path dct:title ;
         sh:datatype xsd:string ;
     ] , [
@@ -200,6 +225,7 @@ ex:DataserviceShape
         ) ;
     ] , [
         sh:path dcat:endpointURL ;
+        sh:minCount 1 ;                # mandatory according to https://semiceu.github.io/DCAT-AP/releases/3.0.0/html/overview-annotated.jpg
         sh:or (
             [ sh:nodeKind sh:IRI ]
             [ sh:datatype xsd:anyURI ]
@@ -207,6 +233,13 @@ ex:DataserviceShape
                 sh:datatype xsd:string ;
                 sh:pattern "^https?://.*"
             ]
+        ) ;
+    ] ,[
+        sh:path dct:title ;
+        sh:minCount 1 ;                # mandatory according to https://semiceu.github.io/DCAT-AP/releases/3.0.0/html/overview-annotated.jpg
+        sh:or (
+            [ sh:datatype xsd:string ]
+            [ sh:datatype rdfs:Literal ]
         ) ;
     ] , [
         sh:path dcat:endpointDescription ;
