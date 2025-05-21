@@ -1,0 +1,56 @@
+@base <https://w3id.org/fair-ease/ns/endpoint-types#> .
+@prefix _: <https://w3id.org/fair-ease/ns/endpoint-types#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# Ontology Metadata
+<Ontology> a rdfs:Resource ;
+    rdfs:comment "FAIR-EASE endpoint types ontology for dcat:conformsTo usage." .
+
+# Endpoint Types Definitions
+
+_:metadata a rdfs:Resource ;
+    rdfs:label "metadata" ;
+    rdfs:comment "May be used in dcat:Distribution only." ;
+    rdfs:isDefinedBy <Ontology> .
+
+_:direct-download a rdfs:Resource ;
+    rdfs:label "direct-download" ;
+    rdfs:comment "May be used in dcat:Distribution only." ;
+    rdfs:isDefinedBy <Ontology> .
+
+_:landing-page a rdfs:Resource ;
+    rdfs:label "landing-page" ;
+    rdfs:comment "May be used in dcat:Distribution only." ;
+    rdfs:isDefinedBy <Ontology> .
+
+_:folder-path a rdfs:Resource ;
+    rdfs:label "folder-path" ;
+    rdfs:comment "May be used in dcat:Distribution only." ;
+    rdfs:isDefinedBy <Ontology> .
+
+_:ftp a rdfs:Resource ;
+    rdfs:label "ftp" ;
+    rdfs:comment "May be used in dcat:Distribution only." ;
+    rdfs:isDefinedBy <Ontology> .
+
+_:http a rdfs:Resource ;
+    rdfs:label "http" ;
+    rdfs:comment "May be used in dcat:Distribution only." ;
+    rdfs:isDefinedBy <Ontology> .
+
+_:https a rdfs:Resource ;
+    rdfs:label "https" ;
+    rdfs:comment "May be used in dcat:Distribution only." ;
+    rdfs:isDefinedBy <Ontology> .
+
+_:opendap a rdfs:Resource ;
+    rdfs:label "opendap" ;
+    rdfs:comment "May be used in both dcat:Service and dcat:Distribution." ;
+    rdfs:isDefinedBy <Ontology> .
+
+_:stac a rdfs:Resource ;
+    rdfs:label "stac" ;
+    rdfs:comment "May be used in both dcat:Service and dcat:Distribution." ;
+    rdfs:isDefinedBy <Ontology> .
