@@ -16,204 +16,176 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 
 <http://vocab.nerc.ac.uk/collection/P01/current/TEMPP681/> a skos:Concept, sosa:ObservedProperty, iop:Variable;
-skos:prefLabel "Temperature (IPTS-68) of the water body" .
+    skos:prefLabel "Temperature (IPTS-68) of the water body" .
+    # OPTIONAL: Add the iadopt decomposition here
+    # iop:hasObjectOfInterest	<http://vocab.nerc.ac.uk/collection/S21/current/S21S027> ;
+    # iop:hasProperty	<http://vocab.nerc.ac.uk/collection/S06/current/S0600160/> .
 
-#Or do the iadopt decomposition here
-# iop:hasObjectOfInterest	<http://vocab.nerc.ac.uk/collection/S21/current/S21S027> ;
-# iop:hasProperty	<http://vocab.nerc.ac.uk/collection/S06/current/S0600160/> .
-
-
- <http://vocab.nerc.ac.uk/collection/L27/current/ARGO_QC/> a skos:Concept;
-skos:prefLabel "ARGO quality flags".
-
+<http://vocab.nerc.ac.uk/collection/L27/current/ARGO_QC/> a skos:Concept;
+    skos:prefLabel "ARGO quality flags".
 
 <https://edmo.seadatanet.org/report/43> a prov:Organization, foaf:Agent ;
-foaf:name "BODC".
+    foaf:name "BODC".
 
-
- <https://edmo.seadatanet.org/report/4614> a prov:Organization, foaf:Agent ;
-foaf:name "Argo".
+<https://edmo.seadatanet.org/report/4614> a prov:Organization, foaf:Agent ;
+    foaf:name "Argo".
 
 <http://id.loc.gov/vocabulary/iso639-1/en> a dct:LinguisticSystem .
 
+<http://vocab.nerc.ac.uk/collection/P22/current/28/> a skos:Concept;
+    skos:prefLabel "Oceanographic geographical features" .
 
- <http://vocab.nerc.ac.uk/collection/P22/current/28/> a skos:Concept;
- skos:prefLabel "Oceanographic geographical features" .
+#The main catalogue
+ex:FAIREASECatalog a dcat:Catalog ;
+    dct:title "FAIREASECatalog Catalog"@en ;
+    dct:description "FAIREASECatalog Catalog"@en ;
+    foaf:homepage <http://example.org/catalog> ;
+    dct:publisher  <https://edmo.seadatanet.org/report/43> ;
+    dct:language <http://id.loc.gov/vocabulary/iso639-1/en>  ;
+    #Contains other catalogues
+    dcat:catalog ex:SDNCatalog, ex:CopernicusCatalog .
 
-  #The main catalogue
-  ex:FAIREASECatalog a dcat:Catalog ;
-  dct:title "FAIREASECatalog Catalog"@en ;
-  dct:description "FAIREASECatalog Catalog"@en ;
-  foaf:homepage <http://example.org/catalog> ;
-  dct:publisher  <https://edmo.seadatanet.org/report/43> ;
-  dct:language <http://id.loc.gov/vocabulary/iso639-1/en>  ;
-  #Contains other catalogues
-  dcat:catalog ex:SDNCatalog, ex:CopernicusCatalog .
+    #Describe each Catalogue with as much detail as FAIRE-EASE has and list their datasets. here I only include one dataset for SDN ex:MyDataset
 
-#Describe each Catalogue with as much detail as FAIRE-EASE has and list their datasets. here I only include one dataset for SDN ex:MyDataset
+ex:SDNCatalog a dcat:Catalog ;
+    dct:title "SeaDataNet Catalogue";
+    dct:description "SeaDataNet Catalogue";
+    dcat:dataset exdata:MyDataset;
+    dct:publisher  <https://edmo.seadatanet.org/report/43> .
 
-  ex:SDNCatalog a dcat:Catalog ;
-  
-  dct:title "SeaDataNet Catalogue";
-  dct:description "SeaDataNet Catalogue";
-  dcat:dataset exdata:MyDataset;
-  dct:publisher  <https://edmo.seadatanet.org/report/43> .
- 
-  ex:CopernicusCatalog a dcat:Catalog ;
-  dct:title "Copernicus Catalogue";
-  dct:description "Copernicus Catalogue";
-  dct:publisher  <https://edmo.seadatanet.org/report/43> .
-  
+ex:CopernicusCatalog a dcat:Catalog ;
+    dct:title "Copernicus Catalogue";
+    dct:description "Copernicus Catalogue";
+    dct:publisher  <https://edmo.seadatanet.org/report/43> .
+
 
 #Describing the main dataset
 exdata:MyDataset a dcat:Dataset, sdo:Dataset;
-dct:title "PROVOR-V JUMBO Profiling Float - 2903783 - Argo LOV";
-dct:description "SeaDataNet is the Pan-European infrastructure for marine and ocean data management and delivery services. ";
-dct:identifier <https://cdi.seadatanet.org/report/681> ;
-adms:identifier [
-rdf:type adms:Identifier;
-rdf:parseType "Resource";
-skos:notation "10.1000/182" ;
-adms:schemaAgency <https://registry.identifiers.org/registry/doi> ;
-];
-dcat:theme <http://vocab.nerc.ac.uk/collection/P22/current/28/> ;
-
-dct:issued "2008-12-04"^^xsd:date;
-dcat:distribution exdata:MyDataset-001-csv ;
-dqv:hasQualityMeasurement exdata:measurement1;
-dct:relation <https//www.example.com/OriginalDatasetURI> ;
-
-
-dct:publisher [
-        a foaf:Agent ;
+    dct:title "PROVOR-V JUMBO Profiling Float - 2903783 - Argo LOV";
+    dct:description "SeaDataNet is the Pan-European infrastructure for marine and ocean data management and delivery services. ";
+    dct:identifier <https://cdi.seadatanet.org/report/681> ;
+    adms:identifier [
+        rdf:type adms:Identifier;
+        rdf:parseType "Resource";
+        skos:notation "10.1000/182" ;
+        adms:schemaAgency <https://registry.identifiers.org/registry/doi> ;
+    ];
+    dcat:theme <http://vocab.nerc.ac.uk/collection/P22/current/28/> ;
+    dct:issued "2008-12-04"^^xsd:date;
+    dcat:distribution exdata:MyDataset-001-csv ;
+    dqv:hasQualityMeasurement exdata:measurement1;
+    dct:relation <https//www.example.com/OriginalDatasetURI> ;
+    dct:publisher [ a foaf:Agent ;
         foaf:name "Example Research Institute" ;
     ] ,
- <https://edmo.seadatanet.org/report/4614>; #if we know the URL of the publisher
+    <https://edmo.seadatanet.org/report/4614>; # This is if we know the URL of the publisher
+
+    dct:creator [ a foaf:Agent ;
+        foaf:name "Example Research Institute"
+    ],
+    [ a foaf:Agent ;
+        foaf:name "Another Research Organization"
+    ], 
+    <https://edmo.seadatanet.org/report/43> ; #This is if you know the URL
+
+    # Contributor case without organization URI
+    prov:qualifiedAttribution [ a prov:Attribution ;
+        prov:agent [
+            rdf:type prov:Agent;
+            foaf:name "Example Research Institute";
+            dcat:hadRole <http://vocab.nerc.ac.uk/collection/G04/current/018/> ;
+        ] ;
+    ];
 
 
-
-
-dct:creator [
-    a foaf:Agent ;
-    foaf:name "Example Research Institute"
-] ,
-[
-    a foaf:Agent ;
-    foaf:name "Another Research Organization"
-] ,
-<https://edmo.seadatanet.org/report/43> ; #This is if you know the URL
-
-
-# contributor case without organization URI
-prov:qualifiedAttribution [
-    a prov:Attribution ;
-    prov:agent [
-        rdf:type prov:Agent;
-        foaf:name "Example Research Institute";
+    # Contributor case with organization URI
+    prov:qualifiedAttribution [ a prov:Attribution ;
+        prov:agent  <https://edmo.seadatanet.org/report/4614>;
         dcat:hadRole <http://vocab.nerc.ac.uk/collection/G04/current/018/> ;
-  ] ;
-];
+    ];
 
+    # Other roles, without organization URI
+    prov:qualifiedAttribution [ a prov:Attribution ;
+        prov:agent [ a prov:Agent;
+            foaf:name "Example Research Institute";
+            dcat:hadRole [  a skos:Concept ;
+                skos:prefLabel "My Custom Role";
+            ];     
+        ] ;
+    ];
 
-# contributor case with organization URI
-prov:qualifiedAttribution [
-    a prov:Attribution ;
-    prov:agent  <https://edmo.seadatanet.org/report/4614>;
-        dcat:hadRole <http://vocab.nerc.ac.uk/collection/G04/current/018/> ;
-];
-
-# other roles, without organization URI
-prov:qualifiedAttribution [
-    a prov:Attribution ;
-    prov:agent [
-        rdf:type prov:Agent;
-        foaf:name "Example Research Institute";
-        dcat:hadRole [
-             a skos:Concept ;
-            skos:prefLabel "My Custom Role";
-                ];     
-      
-  ] ;
-];
-
-
-
-
-#Temporal Info
-dct:temporal [
-      a dct:PeriodOfTime ;    
-      dcat:startDate "1967-01-10"^^xsd:date ;    
-      dcat:endDate   "2021-04-09"^^xsd:date ;  
+    #Temporal Info
+    dct:temporal [
+        a dct:PeriodOfTime ;    
+        dcat:startDate "1967-01-10"^^xsd:date ;    
+        dcat:endDate   "2021-04-09"^^xsd:date ;  
     ]
-;
+    ;
 
-#Spatial Info
+    #Spatial Info
     dct:spatial [
-    a dct:Location ;
-    dcat:bbox """POLYGON((
-      3.053 47.975 , 7.24  47.975 ,
-      7.24  53.504 , 3.053 53.504 ,
-      3.053 47.975
-    ))"""^^geosparql:wktLiteral ;
-  ] ;
-
-sdo:variableMeasured [
-    
-      rdf:type sdo:PropertyValue;
-      sdo:name "Temperature (IPTS-68) of the water body";
-      sdo:alternateName "WC_temp68";
-      sdo:propertyID <http://vocab.nerc.ac.uk/collection/P01/current/TEMPP681> ;
+        a dct:Location ;
+        dcat:bbox """POLYGON((3.053 47.975, 7.24 47.975, 7.24 53.504, 3.053 53.504, 3.053 47.975))"""^^geosparql:wktLiteral ;
     ] ;
 
-  prov:wasGeneratedBy exdata:Activity1 .
+    sdo:variableMeasured [
+        rdf:type sdo:PropertyValue;
+        sdo:name "Temperature (IPTS-68) of the water body";
+        sdo:alternateName "WC_temp68";
+        sdo:propertyID <http://vocab.nerc.ac.uk/collection/P01/current/TEMPP681> ;
+    ] ;
+
+    prov:wasGeneratedBy exdata:Activity1 .
 
 exdata:Activity1 a prov:Activity;
-  prov:used <http://vocab.nerc.ac.uk/collection/L05/current/134/> ;
-  #Suggestion to separate the sensor from the platform as we currently do not hold this info
-  prov:used <http://vocab.nerc.ac.uk/collection/B76/current/B7600031/> .
+    prov:used <http://vocab.nerc.ac.uk/collection/L05/current/134/> ;
+    #Suggestion to separate the sensor from the platform as we currently do not hold this info
+    prov:used <http://vocab.nerc.ac.uk/collection/B76/current/B7600031/> .
 
 #Separation of platform and sensor by commenting out the following:
 <http://vocab.nerc.ac.uk/collection/L05/current/134/>  a sosa:Sensor, prov:Entity, skos:Concept;
-skos:prefLabel "water temperature sensor".
-#sosa:observes <http://vocab.nerc.ac.uk/collection/P01/current/TEMPP681/> ;
-#sosa:isHostedBy <http://vocab.nerc.ac.uk/collection/B76/current/B7600031/> .
+    skos:prefLabel "water temperature sensor".
+    #sosa:observes <http://vocab.nerc.ac.uk/collection/P01/current/TEMPP681/> ;
+    #sosa:isHostedBy <http://vocab.nerc.ac.uk/collection/B76/current/B7600031/> .
 
 <http://vocab.nerc.ac.uk/collection/B76/current/B7600031/> a sosa:Platform, prov:Entity ;
-skos:prefLabel "National Oceanography Centre Autosub6000 autonomous underwater vehicle" .
-#sosa:hosts <http://vocab.nerc.ac.uk/collection/L05/current/134/> .
+    skos:prefLabel "National Oceanography Centre Autosub6000 autonomous underwater vehicle" .
+    #sosa:hosts <http://vocab.nerc.ac.uk/collection/L05/current/134/> .
 
 
 ##Distribution
 exdata:MyDataset-001-csv   a dcat:Distribution ;
-  dcat:downloadURL <http://dcat.example.org/files/001.csv> ;
-  dct:title "CSV distribution of imaginary dataset 001"@en ;
-  dct:title "distribuciÃ³n en CSV del conjunto de datos imaginario 001"@es ;
-  dcat:mediaType <http://www.iana.org/assignments/media-types/text/csv> ;
-  dcat:accessService exdata:subset-service-001 ;
-  dcat:accessURL <http://dcat.example.org/files/001.html> ;
-  dcat:byteSize "5120"^^xsd:nonNegativeInteger ;
-  dct:license  <https://spdx.org/licenses/CC-BY-4.0.html> ;
-  dct:accessRights   <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
-  dct:rights [ a dct:RightsStatement ;
-    rdfs:label "A rights statement"@en 
-  ] .
+    dcat:downloadURL <http://dcat.example.org/files/001.csv> ;
+    dct:title "CSV distribution of imaginary dataset 001"@en ;
+    dct:title "Distribución en CSV del conjunto de datos imaginario 001"@es ;
+    dct:conformsTo <https://w3id.org/fair-ease/ns/endpoint-types#direct-download>
+    dcat:mediaType <http://www.iana.org/assignments/media-types/text/csv> ;
+    dcat:accessService exdata:subset-service-001 ;
+    dcat:accessURL <http://dcat.example.org/files/001.html> ;
+    dcat:byteSize "5120"^^xsd:nonNegativeInteger ;
+    dct:license  <https://spdx.org/licenses/CC-BY-4.0.html> ;
+    dct:accessRights   <http://publications.europa.eu/resource/authority/access-right/PUBLIC> ;
+    dct:rights [ a dct:RightsStatement ;
+        rdfs:label "A rights statement"@en 
+    ] .
 
 
 #The quality info here
 exdata:measurement1 a dqv:QualityMeasurement ;
-dqv:isMeasurementOf  <http://vocab.nerc.ac.uk/collection/L27/current/ARGO_QC/> ;
-dqv:value "good"^^xsd:string .
+    dqv:isMeasurementOf  <http://vocab.nerc.ac.uk/collection/L27/current/ARGO_QC/> ;
+    dqv:value "good"^^xsd:string .
 
 #A service
 exdata:subset-service-001
-  dct:title "Subsetting dataservice";
-  rdf:type dcat:DataService ;
-  dct:conformsTo <http://dcat.example.org/apidef/table/v2.2> ;
-  dct:type <https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/invoke> ;
-  dcat:endpointDescription <http://dcat.example.org/api/table-005/capability> ;
-  dcat:endpointURL <http://dcat.example.org/api/table-001> ;
-  dcat:accessURL <http://dcat.example.org/files/001.html> ;
-  dcat:servesDataset exdata:MyDataset .
+    dct:title "Subsetting dataservice";
+    rdf:type dcat:DataService ;
+    dct:conformsTo <http://dcat.example.org/apidef/table/v2.2> ;
+    dct:conformsTo <https://w3id.org/fair-ease/ns/endpoint-types#opendap>
+    dct:type <https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/invoke> ;
+    dcat:endpointDescription <http://dcat.example.org/api/table-005/capability> ;
+    dcat:endpointURL <http://dcat.example.org/api/table-001> ;
+    dcat:accessURL <http://dcat.example.org/files/001.html> ;
+    dcat:servesDataset exdata:MyDataset .
 
 
 <http://dcat.example.org/files/001.csv> a rdfs:Resource .

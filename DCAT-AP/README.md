@@ -13,6 +13,10 @@ The included classes and properties are visualized in the diagram below:
 
 can be used to validate the conformance of a dataset description to the FE-DCAT-AP.
 
+## Example Dataset
+
+You can find an example of a dataset described with the Fair-Ease DCAT application profile [here (dataset-example.ttl)](dataset-example.ttl)
+
 
 ## Validation
 
