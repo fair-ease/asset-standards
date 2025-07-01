@@ -5,7 +5,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 # Ontology Metadata
-<Ontology> a rdfs:Resource, dc:Standard ;
+<Ontology> a owl:Ontology ;
     rdfs:comment "FAIR-EASE endpoint types ontology for dcat:conformsTo usage." .
 
 # Endpoint Types Definitions
