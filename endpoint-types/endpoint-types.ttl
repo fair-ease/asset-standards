@@ -7,18 +7,9 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 # Collection Metadata
-<> a skos:Collection ;
+<> a skos:ConceptScheme ;
     skos:prefLabel "FAIR-EASE Endpoint Types" ;
-    rdfs:comment "FAIR-EASE endpoint types for dcat:conformsTo usage." ;
-    skos:member <#metadata>,
-                <#direct-download>,
-                <#landing-page>,
-                <#folder-path>,
-                <#ftp>,
-                <#http>,
-                <#https>,
-                <#opendap>,
-                <#stac> .
+    rdfs:comment "FAIR-EASE endpoint types for dcat:conformsTo usage." .
 
 # Endpoint Types Definitions
 <#metadata> a skos:Concept, rdfs:Resource, dc:Standard ;
