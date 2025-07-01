@@ -158,7 +158,7 @@ exdata:MyDataset-001-csv   a dcat:Distribution ;
     dcat:downloadURL <http://dcat.example.org/files/001.csv> ;
     dct:title "CSV distribution of imaginary dataset 001"@en ;
     dct:title "Distribución en CSV del conjunto de datos imaginario 001"@es ;
-    dct:conformsTo <https://w3id.org/fair-ease/ns/endpoint-types#direct-download>
+    dct:conformsTo <https://w3id.org/fair-ease/ns/endpoint-types#direct-download> ;
     dcat:mediaType <http://www.iana.org/assignments/media-types/text/csv> ;
     dcat:accessService exdata:subset-service-001 ;
     dcat:accessURL <http://dcat.example.org/files/001.html> ;
@@ -180,7 +180,7 @@ exdata:subset-service-001
     dct:title "Subsetting dataservice";
     rdf:type dcat:DataService ;
     dct:conformsTo <http://dcat.example.org/apidef/table/v2.2> ;
-    dct:conformsTo <https://w3id.org/fair-ease/ns/endpoint-types#opendap>
+    dct:conformsTo <https://w3id.org/fair-ease/ns/endpoint-types#opendap> ;
     dct:type <https://inspire.ec.europa.eu/metadata-codelist/SpatialDataServiceType/invoke> ;
     dcat:endpointDescription <http://dcat.example.org/api/table-005/capability> ;
     dcat:endpointURL <http://dcat.example.org/api/table-001> ;
@@ -196,4 +196,3 @@ exdata:subset-service-001
 <http://example.org/catalog> a foaf:Document .
 <http://www.iana.org/assignments/media-types/text/csv> a dct:MediaType .
 <http://vocab.nerc.ac.uk/collection/L27/current/ARGO_QC/> a dqv:Metric .
-
