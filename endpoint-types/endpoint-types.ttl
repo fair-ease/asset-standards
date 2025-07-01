@@ -9,7 +9,7 @@
 # Collection Metadata
 <> a skos:Collection ;
     skos:prefLabel "FAIR-EASE Endpoint Types" ;
-    rdfs:comment "FAIR-EASE endpoint types for dcat:conformsTo usage." .
+    rdfs:comment "FAIR-EASE endpoint types for dcat:conformsTo usage." ;
     skos:member <#metadata>,
                 <#direct-download>,
                 <#landing-page>,
