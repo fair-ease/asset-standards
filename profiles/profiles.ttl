@@ -1,52 +1,52 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix _: <https://tbd> .
+@prefix dc: <http://purl.org/dc/terms/> .
 
 @base <https://lab.fairease.eu/asset-standards/profiles> .
 
 <#doi>
-    a _:Profile ;
+    a dc:Standard ;
     rdfs:label "Digital Object Identifier" ;
     rdfs:comment "A Digital Object Identifier (DOI) is a unique alphanumeric string assigned by a registration agency (the International DOI Foundation) to identify content and provide a persistent link to its location on the Internet." ;
 .
 
 <#direct-download>
-    a _:Profile ;
+    a dc:Standard ;
     rdfs:label "Direct Download" ;
     rdfs:comment "A direct download link is a link that starts a download of a file when clicked." ;
 .
 
 <#folder-path>
-    a _:Profile ;
+    a dc:Standard ;
     rdfs:label "Folder Path" ;
     rdfs:comment "A folder path is a string that represents the location of a folder in a file system." ;
 .
 
 <#ftp>
-    a _:Profile ;
+    a dc:Standard ;
     rdfs:label "FTP" ;
     rdfs:comment "File Transfer Protocol (FTP) is a standard network protocol used to transfer files from one host to another host over a TCP-based network, such as the Internet." ;
 .
 
 <#http>
-    a _:Profile ;
+    a dc:Standard ;
     rdfs:label "HTTP" ;
     rdfs:comment "Hypertext Transfer Protocol (HTTP) is an application protocol for distributed, collaborative, hypermedia information systems." ;
 .
 
 <#https>
-    a _:Profile ;
+    a dc:Standard ;
     rdfs:label "HTTPS" ;
     rdfs:comment "Hypertext Transfer Protocol Secure (HTTPS) is an extension of the Hypertext Transfer Protocol (HTTP) for secure communication over a computer network, and is widely used on the Internet." ;
 .
 
 <#stac>
-    a _:Profile ;
+    a dc:Standard ;
     rdfs:label "SpatioTemporal Asset Catalog" ;
     rdfs:comment "The SpatioTemporal Asset Catalog (STAC) specification provides a common language to describe a range of geospatial information, so it can more easily be indexed and discovered." ;
 .
 
 <#landing-page>
-    a _:Profile ;
+    a dc:Standard ;
     rdfs:label "Landing Page" ;
     rdfs:comment "A landing page is a standalone web page, created specifically for a marketing or advertising campaign." ;
 .
