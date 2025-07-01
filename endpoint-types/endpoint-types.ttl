@@ -7,6 +7,7 @@
 
 # Ontology Metadata
 <Ontology> a owl:Ontology ;
+    rdfs:label "FAIR-EASE Endpoint Types Ontology" ;
     rdfs:comment "FAIR-EASE endpoint types ontology for dcat:conformsTo usage." .
 
 # Endpoint Types Definitions
