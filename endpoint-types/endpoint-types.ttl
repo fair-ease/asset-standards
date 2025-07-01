@@ -4,55 +4,64 @@
 @prefix dc: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
-# Ontology Metadata
-<Ontology> a owl:Ontology ;
-    rdfs:label "FAIR-EASE Endpoint Types Ontology" ;
-    rdfs:comment "FAIR-EASE endpoint types ontology for dcat:conformsTo usage." .
+# Collection Metadata
+<> a skos:Collection ;
+    skos:prefLabel "FAIR-EASE Endpoint Types" ;
+    rdfs:comment "FAIR-EASE endpoint types for dcat:conformsTo usage." .
+    skos:member <#metadata>,
+                <#direct-download>,
+                <#landing-page>,
+                <#folder-path>,
+                <#ftp>,
+                <#http>,
+                <#https>,
+                <#opendap>,
+                <#stac> .
 
 # Endpoint Types Definitions
-
-<#metadata> a rdfs:Resource, dc:Standard ;
-    rdfs:label "metadata" ;
+<#metadata> a skos:Concept, rdfs:Resource, dc:Standard ;
+    skos:prefLabel "metadata" ;
     rdfs:comment "May be used in dcat:Distribution only." ;
-    rdfs:isDefinedBy <Ontology> .
+    skos:inScheme <> .
 
-<#direct-download> a rdfs:Resource, dc:Standard ;
-    rdfs:label "direct-download" ;
+<#direct-download> a skos:Concept, rdfs:Resource, dc:Standard ;
+    skos:prefLabel "direct-download" ;
     rdfs:comment "May be used in dcat:Distribution only." ;
-    rdfs:isDefinedBy <Ontology> .
+    skos:inScheme <> .
 
-<#landing-page> a rdfs:Resource, dc:Standard ;
-    rdfs:label "landing-page" ;
+<#landing-page> a skos:Concept, rdfs:Resource, dc:Standard ;
+    skos:prefLabel "landing-page" ;
     rdfs:comment "May be used in dcat:Distribution only." ;
-    rdfs:isDefinedBy <Ontology> .
+    skos:inScheme <> .
 
-<#folder-path> a rdfs:Resource, dc:Standard ;
-    rdfs:label "folder-path" ;
+<#folder-path> a skos:Concept, rdfs:Resource, dc:Standard ;
+    skos:prefLabel "folder-path" ;
     rdfs:comment "May be used in dcat:Distribution only." ;
-    rdfs:isDefinedBy <Ontology> .
+    skos:inScheme <> .
 
-<#ftp> a rdfs:Resource, dc:Standard ;
-    rdfs:label "ftp" ;
+<#ftp> a skos:Concept, rdfs:Resource, dc:Standard ;
+    skos:prefLabel "ftp" ;
     rdfs:comment "May be used in dcat:Distribution only." ;
-    rdfs:isDefinedBy <Ontology> .
+    skos:inScheme <> .
 
-<#http> a rdfs:Resource, dc:Standard ;
-    rdfs:label "http" ;
+<#http> a skos:Concept, rdfs:Resource, dc:Standard ;
+    skos:prefLabel "http" ;
     rdfs:comment "May be used in dcat:Distribution only." ;
-    rdfs:isDefinedBy <Ontology> .
+    skos:inScheme <> .
 
-<#https> a rdfs:Resource, dc:Standard ;
-    rdfs:label "https" ;
+<#https> a skos:Concept, rdfs:Resource, dc:Standard ;
+    skos:prefLabel "https" ;
     rdfs:comment "May be used in dcat:Distribution only." ;
-    rdfs:isDefinedBy <Ontology> .
+    skos:inScheme <> .
 
-<#opendap> a rdfs:Resource, dc:Standard ;
-    rdfs:label "opendap" ;
+<#opendap> a skos:Concept, rdfs:Resource, dc:Standard ;
+    skos:prefLabel "opendap" ;
     rdfs:comment "May be used in both dcat:Service and dcat:Distribution." ;
-    rdfs:isDefinedBy <Ontology> .
+    skos:inScheme <> .
 
-<#stac> a rdfs:Resource, dc:Standard ;
-    rdfs:label "stac" ;
+<#stac> a skos:Concept, rdfs:Resource, dc:Standard ;
+    skos:prefLabel "stac" ;
     rdfs:comment "May be used in both dcat:Service and dcat:Distribution." ;
-    rdfs:isDefinedBy <Ontology> .
+    skos:inScheme <> .
