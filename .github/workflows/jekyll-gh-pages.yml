@@ -31,7 +31,7 @@ jobs:
       - name: Build Pages
         uses: vliz-be-opsci/pylode-to-pages@v0.1.44
         with:
-          baseuri: https://lab.fairease.eu/asset-standards/endpoint-types/
+          baseuri: https://lab.fairease.eu/asset-standards/endpoint-types
           nsfolder: ./endpoint-types
           outfolder: ./endpoint-types
 
