@@ -4,78 +4,89 @@
 @prefix dc: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 # Ontology Metadata
-<> a owl:Ontology ;
+<> a owl:Ontology , skos:ConceptScheme ;
     rdfs:label "FAIR-EASE Endpoint Types Ontology" ;
+    skos:prefLabel "FAIR-EASE Endpoint Types Ontology" ;
     rdfs:comment "FAIR-EASE endpoint types ontology for dcat:conformsTo usage." .
 
 # Endpoint Types Definitions
 
-<#metadata> a owl:Class, rdfs:Resource, dc:Standard ; 
+<#metadata> a owl:Class, skos:Concept, rdfs:Resource, dc:Standard ; 
     rdfs:label "metadata" ;
     dc:title "metadata" ;
     dc:description "Represents an endpoint type where the distribution provides metadata only, not the actual dataset itself." ; 
     rdfs:comment "May be used in dcat:Distribution only." ;
+    skos:inScheme <> ;
     rdfs:isDefinedBy <> .
 
-<#direct-download> a owl:Class, rdfs:Resource, dc:Standard ;
+<#direct-download> a owl:Class, skos:Concept, rdfs:Resource, dc:Standard ;
     rdfs:label "direct-download" ;
     dc:title "direct download" ; 
     dc:description "Represents an endpoint type where the distribution is accessible through a direct file link" ; 
     rdfs:comment "May be used in dcat:Distribution only." ;
+    skos:inScheme <> ;
     rdfs:isDefinedBy <> .
 
-<#landing-page> a owl:Class, rdfs:Resource, dc:Standard ;
+<#landing-page> a owl:Class, skos:Concept, rdfs:Resource, dc:Standard ;
     rdfs:label "landing-page" ;
     dc:title "landing-page" ; 
     dc:description "Represents an endpoint type that resolves to a human-oriented landing page describing a dataset or service. The page may provide links to metadata, documentation, or download options." ;
     rdfs:comment "May be used in dcat:Distribution only." ;
+    skos:inScheme <> ;
     rdfs:isDefinedBy <> .
 
-<#folder-path> a owl:Class, rdfs:Resource, dc:Standard ;
+<#folder-path> a owl:Class, skos:Concept, rdfs:Resource, dc:Standard ;
     rdfs:label "folder-path" ;
     dc:title "folder-path" ;
     dc:description "Represents an endpoint type exposing a directory or folder view (e.g., via web server auto-indexing, FTP directory listing, or shared file system path)." ; 
     rdfs:comment "May be used in dcat:Distribution only." ;
+    skos:inScheme <> ; 
     rdfs:isDefinedBy <> .
 
-<#ftp> a owl:Class, rdfs:Resource, dc:Standard ;
+<#ftp> a owl:Class, skos:Concept, rdfs:Resource, dc:Standard ;
     rdfs:label "ftp" ;
     dc:title "ftp" ; 
     dc:description "Represents an endpoint type using the File Transfer Protocol (FTP) for access" ;
     rdfs:seeAlso <https://datatracker.ietf.org/doc/html/rfc959> ;
     rdfs:comment "May be used in dcat:Distribution only." ;
+    skos:inScheme <> ;
     rdfs:isDefinedBy <> .
 
-<#http> a owl:Class, rdfs:Resource, dc:Standard ;
+<#http> a owl:Class, skos:Concept, rdfs:Resource, dc:Standard ;
     rdfs:label "http" ;
     dc:title "http" ;
     dc:description "Represents an endpoint type using the Hypertext Transfer Protocol (HTTP) for access" ;
     rdfs:seeAlso <https://datatracker.ietf.org/doc/html/rfc2616> , <https://datatracker.ietf.org/doc/html/rfc7540> ;  
     rdfs:comment "May be used in dcat:Distribution only." ;
+    skos:inScheme <> ;
     rdfs:isDefinedBy <> .
 
-<#https> a owl:Class, rdfs:Resource, dc:Standard ;
+<#https> a owl:Class, skos:Concept, rdfs:Resource, dc:Standard ;
     rdfs:label "https" ;
     dc:title "https" ;
     dc:description "Represents an endpoint type using the Secure Hypertext Transfer Protocol (HTTPS) for access" ;
     rdfs:seeAlso <https://datatracker.ietf.org/doc/html/rfc2818> ; 
     rdfs:comment "May be used in dcat:Distribution only." ;
+    skos:inScheme <> ;
     rdfs:isDefinedBy <> .
 
-<#opendap> a owl:Class, rdfs:Resource, dc:Standard ;
+<#opendap> a owl:Class, skos:Concept, rdfs:Resource, dc:Standard ;
     rdfs:label "opendap" ;
     dc:title "opendap" ;
     dc:description "Represents an endpoint type using the OPeNDAP (Open-source Project for a Network Data Access Protocol) standard, which enables subsetting and remote access of scientific datasets via HTTP-based APIs." ;
     rdfs:seeAlso <https://www.opendap.org/> ;
     rdfs:comment "May be used in both dcat:Service and dcat:Distribution." ;
+    skos:inScheme <> ;
     rdfs:isDefinedBy <> .
 
-<#stac> a owl:Class, rdfs:Resource, dc:Standard ;
+<#stac> a owl:Class, skos:Concept, rdfs:Resource, dc:Standard ;
     rdfs:label "stac" ;
     dc:title "stac" ; 
     dc:description "Represents an endpoint type implementing the SpatioTemporal Asset Catalog (STAC) API, used to expose collections of spatiotemporal assets such as satellite imagery or geospatial datasets." ;
     rdfs:seeAlso <https://stacspec.org/en> ; 
     rdfs:comment "May be used in both dcat:Service and dcat:Distribution." ;
+    skos:inScheme <> ;
     rdfs:isDefinedBy <> .
