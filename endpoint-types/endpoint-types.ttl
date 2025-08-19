@@ -1,4 +1,4 @@
-@base <https://w3id.org/fair-ease/ns/endpoint-types> .
+@base <https://w3id.org/fair-ease/asset-standards/endpoint-types> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dc: <http://purl.org/dc/terms/> .
