@@ -12,47 +12,65 @@
 
 # Endpoint Types Definitions
 
-<#metadata> a owl:Class, rdfs:Resource, dc:Standard ;
+<#metadata> a owl:Class, rdfs:Resource, dc:Standard ; 
     rdfs:label "metadata" ;
+    dc:title "metadata" ;
+    dc:description "Represents an endpoint type where the distribution provides metadata only, not the actual dataset itself." ; 
     rdfs:comment "May be used in dcat:Distribution only." ;
     rdfs:isDefinedBy <> .
 
 <#direct-download> a owl:Class, rdfs:Resource, dc:Standard ;
     rdfs:label "direct-download" ;
+    dc:title "direct download" ; 
+    dc:description "Represents an endpoint type where the distribution is accessible through a direct file link" ; 
     rdfs:comment "May be used in dcat:Distribution only." ;
     rdfs:isDefinedBy <> .
 
 <#landing-page> a owl:Class, rdfs:Resource, dc:Standard ;
     rdfs:label "landing-page" ;
+    dc:title "landing-page" ; 
+    dc:description "Represents an endpoint type that resolves to a human-oriented landing page describing a dataset or service. The page may provide links to metadata, documentation, or download options." ;
     rdfs:comment "May be used in dcat:Distribution only." ;
     rdfs:isDefinedBy <> .
 
 <#folder-path> a owl:Class, rdfs:Resource, dc:Standard ;
     rdfs:label "folder-path" ;
+    dc:title "folder-path" ;
+    dc:description "Represents an endpoint type exposing a directory or folder view (e.g., via web server auto-indexing, FTP directory listing, or shared file system path)." ; 
     rdfs:comment "May be used in dcat:Distribution only." ;
     rdfs:isDefinedBy <> .
 
 <#ftp> a owl:Class, rdfs:Resource, dc:Standard ;
     rdfs:label "ftp" ;
+    dc:title "ftp" ; 
+    dc:description "Represents an endpoint type using the File Transfer Protocol (FTP) for access" ;
     rdfs:comment "May be used in dcat:Distribution only." ;
     rdfs:isDefinedBy <> .
 
 <#http> a owl:Class, rdfs:Resource, dc:Standard ;
     rdfs:label "http" ;
+    dc:title "http" ;
+    dc:description "Represents an endpoint type using the Hypertext Transfer Protocol (HTTP) for access" ; 
     rdfs:comment "May be used in dcat:Distribution only." ;
     rdfs:isDefinedBy <> .
 
 <#https> a owl:Class, rdfs:Resource, dc:Standard ;
     rdfs:label "https" ;
+    dc:title "https" ;
+    dc:description "Represents an endpoint type using the Secure Hypertext Transfer Protocol (HTTPS) for access" ;
     rdfs:comment "May be used in dcat:Distribution only." ;
     rdfs:isDefinedBy <> .
 
 <#opendap> a owl:Class, rdfs:Resource, dc:Standard ;
     rdfs:label "opendap" ;
+    dc:title "opendap" ;
+    dc:description "Represents an endpoint type using the OPeNDAP (Open-source Project for a Network Data Access Protocol) standard, which enables subsetting and remote access of scientific datasets via HTTP-based APIs." ;
     rdfs:comment "May be used in both dcat:Service and dcat:Distribution." ;
     rdfs:isDefinedBy <> .
 
 <#stac> a owl:Class, rdfs:Resource, dc:Standard ;
     rdfs:label "stac" ;
+    dc:title "stac" ; 
+    dc:description "Represents an endpoint type implementing the SpatioTemporal Asset Catalog (STAC) API, used to expose collections of spatiotemporal assets such as satellite imagery or geospatial datasets." ;
     rdfs:comment "May be used in both dcat:Service and dcat:Distribution." ;
     rdfs:isDefinedBy <> .
