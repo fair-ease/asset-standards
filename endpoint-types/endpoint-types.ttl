@@ -44,13 +44,15 @@
     rdfs:label "ftp" ;
     dc:title "ftp" ; 
     dc:description "Represents an endpoint type using the File Transfer Protocol (FTP) for access" ;
+    rdfs:seeAlso <https://datatracker.ietf.org/doc/html/rfc959> ;
     rdfs:comment "May be used in dcat:Distribution only." ;
     rdfs:isDefinedBy <> .
 
 <#http> a owl:Class, rdfs:Resource, dc:Standard ;
     rdfs:label "http" ;
     dc:title "http" ;
-    dc:description "Represents an endpoint type using the Hypertext Transfer Protocol (HTTP) for access" ; 
+    dc:description "Represents an endpoint type using the Hypertext Transfer Protocol (HTTP) for access" ;
+    rdfs:seeAlso <https://datatracker.ietf.org/doc/html/rfc2616> , <https://datatracker.ietf.org/doc/html/rfc7540> ;  
     rdfs:comment "May be used in dcat:Distribution only." ;
     rdfs:isDefinedBy <> .
 
@@ -58,6 +60,7 @@
     rdfs:label "https" ;
     dc:title "https" ;
     dc:description "Represents an endpoint type using the Secure Hypertext Transfer Protocol (HTTPS) for access" ;
+    rdfs:seeAlso <https://datatracker.ietf.org/doc/html/rfc2818> ; 
     rdfs:comment "May be used in dcat:Distribution only." ;
     rdfs:isDefinedBy <> .
 
@@ -65,6 +68,7 @@
     rdfs:label "opendap" ;
     dc:title "opendap" ;
     dc:description "Represents an endpoint type using the OPeNDAP (Open-source Project for a Network Data Access Protocol) standard, which enables subsetting and remote access of scientific datasets via HTTP-based APIs." ;
+    rdfs:seeAlso <https://www.opendap.org/> ;
     rdfs:comment "May be used in both dcat:Service and dcat:Distribution." ;
     rdfs:isDefinedBy <> .
 
@@ -72,5 +76,6 @@
     rdfs:label "stac" ;
     dc:title "stac" ; 
     dc:description "Represents an endpoint type implementing the SpatioTemporal Asset Catalog (STAC) API, used to expose collections of spatiotemporal assets such as satellite imagery or geospatial datasets." ;
+    rdfs:seeAlso <https://stacspec.org/en> ; 
     rdfs:comment "May be used in both dcat:Service and dcat:Distribution." ;
     rdfs:isDefinedBy <> .
