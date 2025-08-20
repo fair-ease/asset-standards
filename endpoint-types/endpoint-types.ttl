@@ -24,7 +24,7 @@
 
 <#direct-download> a owl:Class, skos:Concept, rdfs:Resource, dc:Standard ;
     rdfs:label "direct-download" ;
-    dc:title "direct download" ; 
+    dc:title "direct-download" ; 
     dc:description "Represents an endpoint type where the distribution is accessible through a direct file link" ; 
     rdfs:comment "May be used in dcat:Distribution only." ;
     skos:inScheme <> ;
