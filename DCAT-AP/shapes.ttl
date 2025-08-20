@@ -101,11 +101,40 @@ ex:SchemaDatasetShape
     ] , [
         sh:path dct:creator ;
         sh:maxCount 1 ;
-        sh:node ex:OrganizationShape ;
+        sh:or (
+            [
+                sh:nodeKind sh:IRI ;
+                sh:pattern "^https://edmo\\.seadatanet\\.org/report/.*$"
+            ]
+            [
+                sh:nodeKind sh:BlankNode ;
+                sh:class foaf:Agent ;
+                sh:property [
+                    sh:path foaf:name ;
+                    sh:datatype xsd:string ;
+                ]
+            ]
+        )
     ] , [
         sh:path dct:publisher ;
         sh:maxCount 1 ;
-        sh:node ex:OrganizationShape ;
+        sh:or (
+            [
+                sh:nodeKind sh:IRI ;
+                sh:pattern "^https://edmo\\.seadatanet\\.org/report/.*$"
+            ]
+            [
+                sh:nodeKind sh:BlankNode ;
+                sh:class foaf:Agent ;
+                sh:property [
+                    sh:path foaf:name ;
+                    sh:datatype xsd:string ;
+                ]
+            ]
+        )
+    ] , [
+        sh:path prov:qualifiedAttribution ;
+        sh:node ex:AttributionShape ;
     ] , [
         sh:path prov:wasGeneratedBy ;
         sh:node ex:ActivityShape ;
@@ -414,11 +443,50 @@ ex:MeasuredVariableShape
 ex:OrganizationShape
     a sh:NodeShape ; 
     sh:nodeKind sh:IRI ;
-    sh:targetClass prov:Organization ;
+    sh:targetClass org:Organization ;
     sh:property [
         sh:path rdfs:label ;
         sh:datatype xsd:string ;
     ] ;
+.
+
+ex:AttributionShape
+    a sh:NodeShape ; 
+    sh:nodeKind sh:BlankNode ;
+    sh:targetClass prov:Attribution ;
+    sh:property [
+        sh:path prov:agent ;
+        sh:or (
+            [ sh:nodeKind sh:IRI ]
+            [ sh:node ex:AgentShape ]
+        )
+    ] , [
+        sh:path dcat:hadRole ; 
+        sh:nodeKind sh:IRI ;
+    ] ;
+.
+
+ex:AgentShape
+    a sh:NodeShape ; 
+    sh:nodeKind sh:BlankNode ;
+    sh:targetClass prov:Agent ;
+    sh:property [
+        sh:path foaf:name  ;
+        sh:datatype xsd:string ;
+    ] , [
+        sh:path dcat:hadRole ;
+        sh:or (
+            [ sh:nodeKind sh:IRI ]
+            [
+                sh:nodeKind sh:BlankNode ;
+                sh:class skos:Concept ;
+                sh:property [
+                    sh:path skos:prefLabel ;
+                    sh:datatype xsd:string ;
+                ]
+            ]
+        )
+    ];
 .
 
 ex:QualityMeasurementShape
