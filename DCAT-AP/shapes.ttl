@@ -109,6 +109,17 @@ ex:SchemaDatasetShape
             ]
         )
     ] , [
+        sh:path dct:relation ;
+        sh:or (
+            [ sh:nodeKind sh:IRI ]
+            [ sh:datatype xsd:anyURI ]
+            [ 
+                sh:datatype xsd:string ;
+                sh:pattern "^https?://.*"
+            ]
+        ) ;
+    ] ,
+    [
         sh:path dct:publisher ;
         sh:or (
             [
