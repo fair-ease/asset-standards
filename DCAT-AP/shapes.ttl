@@ -15,7 +15,7 @@
 @prefix iop: <https://w3id.org/iadopt/ont/>.
 @prefix skos: <http://www.w3.org/2004/02/skos/core#>.
 @prefix sh: <http://www.w3.org/ns/shacl#>.
-
+@prefix org: <http://www.w3.org/ns/org#>.
 
 ex:CatalogShape
     a sh:NodeShape ;
